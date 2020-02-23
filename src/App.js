@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Switch from './Switch';
+import PriceCard from './PriceCard';
 import { StyleSheet } from 'aphrodite';
 
 function App() {
@@ -20,6 +20,13 @@ function App() {
       <div className='content'>
         <h1>Our Pricing</h1>
         <Switch className={styles.switch} />
+        <div className={styles.cards}>
+          <PriceCard 
+            title="Basic"
+            price={199.99}
+            features={['500 GB Storage', '2 Users Allowed', 'Send up to 3 GB']}
+          />
+        </div>
       </div>
     </div>
   );
