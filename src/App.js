@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Switch from './Switch';
 import PriceCard from './PriceCard';
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet, css } from 'aphrodite';
 
 function App() {
   return (
@@ -20,11 +20,22 @@ function App() {
       <div className='content'>
         <h1>Our Pricing</h1>
         <Switch className={styles.switch} />
-        <div className={styles.cards}>
+        <div className={css(styles.cards)}>
           <PriceCard 
             title="Basic"
-            price={199.99}
+            price={19.99}
             features={['500 GB Storage', '2 Users Allowed', 'Send up to 3 GB']}
+          />
+          <PriceCard 
+            title="Proffessional"
+            price={24.99}
+            features={['1 TB Storage', '5 Users Allowed', 'Send up to 10 GB']}
+            highlighted
+          />
+          <PriceCard 
+            title="Master"
+            price={39.99}
+            features={['2 TB Storage', '10 Users Allowed', 'Send up to 20 GB']}
           />
         </div>
       </div>
@@ -34,7 +45,11 @@ function App() {
 
 const styles = StyleSheet.create({
   switch: {
-    margin: '0 auto'
+    margin: '48px auto'
+  },
+  cards: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 })
 

@@ -5,15 +5,31 @@ const PriceCard = props => {
   const { title, price, features, handleClick, highlighted } = props;
 
   return (
-    <div className={css(styles.root)}>
-      <h3 className={css(styles.title)}>{title}</h3>
-      <h1 className={css(styles.price)}>${price}</h1>
+    <div className={css(styles.root, highlighted && styles.highlighted)}>
+      <h3 className={css(styles.title, highlighted && styles.highlightedText)}>
+        {title}
+      </h3>
+      <h1 className={css(styles.price, highlighted && styles.highlightedText)}>
+        ${price}
+      </h1>
       <div className={css(styles.list)}>
-        {features && features.map((f, i) => (
-          <div className={css(styles.feature, i === 0 && styles.first)}>{f}</div> 
-        ))}
+        {features &&
+          features.map((f, i) => (
+            <div
+              key={i}
+              className={css(
+                styles.feature,
+                i === 0 && styles.first,
+                highlighted && styles.highlightedText
+              )}
+            >
+              {f}
+            </div>
+          ))}
       </div>
-      <button className={css(styles.button)}>
+      <button
+        className={css(styles.button, highlighted && styles.highlightedButton)}
+      >
         Learn more
       </button>
     </div>
@@ -26,7 +42,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     textAlign: 'center',
     padding: 10,
-    maxWidth: 300
+    minWidth: 300,
+    zIndex: 1
   },
   price: {
     fontSize: 54,
@@ -50,12 +67,27 @@ const styles = StyleSheet.create({
     fontSize: 12,
     margin: '24px 0',
     letterSpacing: 1,
-    backgroundImage: 'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+    backgroundImage:
+      'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
     border: 'none',
     padding: '13px 54px',
     borderRadius: 5,
     color: 'white',
     cursor: 'pointer'
+  },
+  highlighted: {
+    backgroundImage:
+      'linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+    transform: 'scale(1.1)',
+    zIndex: 2
+  },
+  highlightedText: {
+    color: 'white'
+  },
+  highlightedButton: {
+    backgroundColor: 'white',
+    backgroundImage: 'none',
+    color: 'hsl(237, 63%, 64%)'
   }
 });
 
