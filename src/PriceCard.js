@@ -69,11 +69,17 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     backgroundImage:
       'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
-    border: 'none',
+    border: '1px solid transparent',
     padding: '13px 54px',
     borderRadius: 5,
     color: 'white',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':hover': {
+      backgroundImage: 'none',
+      backgroundColor: 'transparent',
+      color: 'hsl(237, 63%, 64%)',
+      border: '1px solid hsl(237, 63%, 64%)'
+    }
   },
   highlighted: {
     backgroundImage:
@@ -87,7 +93,12 @@ const styles = StyleSheet.create({
   highlightedButton: {
     backgroundColor: 'white',
     backgroundImage: 'none',
-    color: 'hsl(237, 63%, 64%)'
+    color: 'hsl(237, 63%, 64%)',
+    ':hover': {
+      backgroundColor: 'transparent',
+      color: 'white',
+      border: '1px solid white'
+    }
   }
 });
 
