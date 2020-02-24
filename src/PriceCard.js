@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   highlighted: {
     backgroundImage:
-      'linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+      'linear-gradient(135deg, hsl(236, 72%, 79%) 10%, hsl(237, 63%, 64%))',
     transform: 'scale(1.1)',
     zIndex: 2
   },
