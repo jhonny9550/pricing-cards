@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import Switch from './Switch';
 import PriceCard from './PriceCard';
 import { StyleSheet, css } from 'aphrodite';
+import colors from './colors';
 
 // Think this came from an API
 const PRICE_VALUES = {
@@ -83,7 +84,7 @@ function App() {
 // Default stylesheet using aphrodite
 const styles = StyleSheet.create({
   app: {
-    backgroundColor: 'hsl(240, 78%, 98%)',
+    backgroundColor: colors.background,
     height: 'calc(100% - 24px)',
     textAlign: 'center',
     position: 'relative',

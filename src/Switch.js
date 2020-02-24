@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, css } from 'aphrodite';
+import colors from './colors';
 
 const Switch = props => {
   const { className, labels, onToggle } = props;
@@ -75,13 +76,13 @@ const styles = StyleSheet.create({
     maxWidth: 500
   },
   label: {
-    color: 'hsl(237, 63%, 64%)',
+    color: colors.primary,
     fontSize: 14,
     fontWeight: 700
   },
   toggle: {
     backgroundImage:
-      'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+      `linear-gradient(to right, ${colors.light}, ${colors.primary})`,
     borderRadius: 40,
     height: 33,
     position: 'relative',
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   handler: {
     borderRadius: '50%',
-    backgroundColor: '#fff',
+    backgroundColor: colors.paper,
     height: 26,
     width: 26,
     position: 'absolute',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
+import colors from './colors';
 
 const PriceCard = props => {
   const { className, title, price, features, handleClick, highlighted } = props;
@@ -42,28 +43,36 @@ const PriceCard = props => {
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.paper,
     borderRadius: 10,
     textAlign: 'center',
     padding: 10,
     minWidth: 300,
-    zIndex: 1
+    zIndex: 1,
+    '@media (max-width: 400px)': {
+      minWidth: 250
+    }
   },
   price: {
     fontSize: 54,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    '@media (max-width: 400px)': {
+      fontSize: 42
+    }
   },
   feature: {
     paddingTop: 15,
     paddingBottom: 15,
-    borderBottom: '1px solid #e2e2e2',
+    borderBottom: '1px solid',
+    borderColor: colors.medium,
     maxWidth: '85%',
-    color: 'hsl(232, 13%, 33%)',
+    color: colors.dark,
     margin: '0 auto',
     fontWeight: 700
   },
   first: {
-    borderTop: '1px solid #e2e2e2'
+    borderTop: '1px solid',
+    borderColor: colors.medium
   },
   button: {
     textTransform: 'uppercase',
@@ -71,8 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     margin: '24px 0',
     letterSpacing: 1,
-    backgroundImage:
-      'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))',
+    backgroundImage: `linear-gradient(to right, ${colors.light}, ${colors.primary})`,
     border: '1px solid transparent',
     padding: '13px 54px',
     borderRadius: 5,
@@ -81,16 +89,16 @@ const styles = StyleSheet.create({
     ':hover': {
       backgroundImage: 'none',
       backgroundColor: 'transparent',
-      color: 'hsl(237, 63%, 64%)',
-      border: '1px solid hsl(237, 63%, 64%)'
+      color: colors.primary,
+      border: '1px solid',
+      borderColor: colors.primary
     }
   },
   highlighted: {
-    backgroundImage:
-      'linear-gradient(135deg, hsl(236, 72%, 79%) 10%, hsl(237, 63%, 64%))',
+    backgroundImage: `linear-gradient(135deg, ${colors.light} 10%, ${colors.primary})`,
     transform: 'scale(1.1)',
     zIndex: 2,
-    '@media (max-width: 600px)': {
+    '@media (max-width: 980px)': {
       transform: 'none'
     }
   },
@@ -100,7 +108,7 @@ const styles = StyleSheet.create({
   highlightedButton: {
     backgroundColor: 'white',
     backgroundImage: 'none',
-    color: 'hsl(237, 63%, 64%)',
+    color: colors.primary,
     ':hover': {
       backgroundColor: 'transparent',
       color: 'white',
