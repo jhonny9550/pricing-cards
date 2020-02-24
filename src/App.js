@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import './App.css';
 import Switch from './Switch';
 import PriceCard from './PriceCard';
 import { StyleSheet, css } from 'aphrodite';
 
+// think this came from an API
 const PRICE_VALUES = {
   anually: {
     basic: 199.99,
@@ -30,54 +30,102 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <div className={css(styles.app)}>
       <img
-        className='bg-icon bg-bottom'
+        className={css(styles.bgIcon, styles.bgBottom)}
         src={`${process.env.PUBLIC_URL}/assets/images/bg-bottom.svg`}
         alt='Background'
       />
       <img
-        className='bg-icon bg-top'
+        className={css(styles.bgIcon, styles.bgTop)}
         src={`${process.env.PUBLIC_URL}/assets/images/bg-top.svg`}
         alt='Background'
       />
-      <div className='content'>
-        <h1>Our Pricing</h1>
-        <Switch
-          className={styles.switch}
-          labels={['Anually', 'Monthly']}
-          onToggle={handleToggle}
+      <h1 className={css(styles.title)}>Our Pricing</h1>
+      <Switch
+        className={styles.switch}
+        labels={['Anually', 'Monthly']}
+        onToggle={handleToggle}
+      />
+      <div className={css(styles.cards)}>
+        <PriceCard
+          title='Basic'
+          price={prices.basic}
+          features={['500 GB Storage', '2 Users Allowed', 'Send up to 3 GB']}
+          className={styles.card}
         />
-        <div className={css(styles.cards)}>
-          <PriceCard
-            title='Basic'
-            price={prices.basic}
-            features={['500 GB Storage', '2 Users Allowed', 'Send up to 3 GB']}
-          />
-          <PriceCard
-            title='Proffessional'
-            price={prices.proffessional}
-            features={['1 TB Storage', '5 Users Allowed', 'Send up to 10 GB']}
-            highlighted
-          />
-          <PriceCard
-            title='Master'
-            price={prices.master}
-            features={['2 TB Storage', '10 Users Allowed', 'Send up to 20 GB']}
-          />
-        </div>
+        <PriceCard
+          title='Proffessional'
+          price={prices.proffessional}
+          features={['1 TB Storage', '5 Users Allowed', 'Send up to 10 GB']}
+          className={styles.card}
+          highlighted
+        />
+        <PriceCard
+          title='Master'
+          price={prices.master}
+          features={['2 TB Storage', '10 Users Allowed', 'Send up to 20 GB']}
+          className={styles.card}
+        />
       </div>
     </div>
   );
 }
 
 const styles = StyleSheet.create({
+  app: {
+    backgroundColor: 'hsl(240, 78%, 98%)',
+    height: 'calc(100% - 24px)',
+    textAlign: 'center',
+    position: 'relative',
+    overflow: 'hidden',
+    padding: 12,
+    '@media (max-width: 980px)': {
+      height: 'auto'
+    }
+  },
   switch: {
     margin: '48px auto'
   },
   cards: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 12,
+    '@media (max-width: 980px)': {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'space'
+    }
+  },
+  card: {
+    '@media (max-width: 980px)': {
+      marginBottom: 24,
+      marginTop: 24
+    }
+  },
+  title: {
+    // paddingBottom: 36,
+    // paddingTop: 36,
+    // margin: 0
+  },
+  bgIcon: {
+    position: 'absolute',
+    zIndex: 0,
+    '@media (max-width: 980px)': {
+      height: 'auto',
+      width: 150
+    }
+  },
+  bgTop: {
+    right: 0,
+    top: 0,
+    '@media (max-width: 980px)': {
+      right: -70
+    }
+  },
+  bgBottom: {
+    bottom: 0,
+    left: 0
   }
 });
 

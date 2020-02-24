@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 const PriceCard = props => {
-  const { title, price, features, handleClick, highlighted } = props;
+  const { className, title, price, features, handleClick, highlighted } = props;
 
   return (
-    <div className={css(styles.root, highlighted && styles.highlighted)}>
+    <div
+      className={css(styles.root, className, highlighted && styles.highlighted)}
+    >
       <h3 className={css(styles.title, highlighted && styles.highlightedText)}>
         {title}
       </h3>
@@ -29,6 +31,7 @@ const PriceCard = props => {
       </div>
       <button
         className={css(styles.button, highlighted && styles.highlightedButton)}
+        onClick={handleClick}
       >
         Learn more
       </button>
@@ -85,7 +88,10 @@ const styles = StyleSheet.create({
     backgroundImage:
       'linear-gradient(135deg, hsl(236, 72%, 79%) 10%, hsl(237, 63%, 64%))',
     transform: 'scale(1.1)',
-    zIndex: 2
+    zIndex: 2,
+    '@media (max-width: 600px)': {
+      transform: 'none'
+    }
   },
   highlightedText: {
     color: 'white'
