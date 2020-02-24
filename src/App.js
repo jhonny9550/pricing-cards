@@ -3,7 +3,7 @@ import Switch from './Switch';
 import PriceCard from './PriceCard';
 import { StyleSheet, css } from 'aphrodite';
 
-// think this came from an API
+// Think this came from an API
 const PRICE_VALUES = {
   anually: {
     basic: 199.99,
@@ -18,8 +18,14 @@ const PRICE_VALUES = {
 };
 
 function App() {
+  // Setup initial info
   const [prices, setPrices] = useState(PRICE_VALUES.anually);
 
+  /**
+   * This function handle when the toggle value is changing.
+   * It's gonna changes the prices value based on the component callback (cb)
+   * TIP: UseCallback avoid to create unuseful new functions on every update/change/render
+   */
   const handleToggle = useCallback(v => {
     if (v === 'Anually') {
       setPrices(PRICE_VALUES.anually);
@@ -33,6 +39,8 @@ function App() {
     <div className={css(styles.app)}>
       <img
         className={css(styles.bgIcon, styles.bgBottom)}
+        // proccess.env.PUBLIC_URL means the host URL, wherever it's gonna be hosted
+        // It just points to local URL
         src={`${process.env.PUBLIC_URL}/assets/images/bg-bottom.svg`}
         alt='Background'
       />
@@ -41,7 +49,7 @@ function App() {
         src={`${process.env.PUBLIC_URL}/assets/images/bg-top.svg`}
         alt='Background'
       />
-      <h1 className={css(styles.title)}>Our Pricing</h1>
+      <h1>Our Pricing</h1>
       <Switch
         className={styles.switch}
         labels={['Anually', 'Monthly']}
@@ -72,6 +80,7 @@ function App() {
   );
 }
 
+// Default stylesheet using aphrodite
 const styles = StyleSheet.create({
   app: {
     backgroundColor: 'hsl(240, 78%, 98%)',
@@ -80,6 +89,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     overflow: 'hidden',
     padding: 12,
+    // Aphrodite responsive style 😎
     '@media (max-width: 980px)': {
       height: 'auto'
     }
@@ -102,11 +112,6 @@ const styles = StyleSheet.create({
       marginBottom: 24,
       marginTop: 24
     }
-  },
-  title: {
-    // paddingBottom: 36,
-    // paddingTop: 36,
-    // margin: 0
   },
   bgIcon: {
     position: 'absolute',

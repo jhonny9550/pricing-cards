@@ -4,9 +4,16 @@ import { StyleSheet, css } from 'aphrodite';
 const Switch = props => {
   const { className, labels, onToggle } = props;
 
+  // Set first labels array value to the value property from component state
   const [value, setValue] = useState(labels[0]);
   const [animated, setAnimated] = useState(null);
 
+  /**
+   * This function keeps listen value changes for value, labels and onToggle props
+   * It means when some of these property changes it will be recreated
+   * Important: animated prop will have 3 different values: null, 'left' and 'right'.
+   * These values will be used for fire the handle element animations
+   */
   const handleToggle = useCallback(() => {
     if (value === labels[1]) {
       setAnimated('left');

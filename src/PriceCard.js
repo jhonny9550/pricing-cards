@@ -15,6 +15,7 @@ const PriceCard = props => {
         ${price}
       </h1>
       <div className={css(styles.list)}>
+        {/* Create a line with custom style for each array item */}
         {features &&
           features.map((f, i) => (
             <div
