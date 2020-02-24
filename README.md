@@ -24,3 +24,7 @@ npm start
 * Aprhodite library as styling way 💅
 * Basic css animations 👋
 * (TODO) Test coverage 100% 🔨
+
+### Credits
+
+Thanks to [FrontEnd Mentors](https://www.frontendmentor.io/challenges/pricing-component-with-toggle-8vPwRMIC) for an amazing challenge!
