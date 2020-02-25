@@ -23,7 +23,7 @@ npm start
 * React hooks (useState, useCallback) 🚀
 * Aprhodite library as styling way 💅
 * Basic css animations 👋
-* (TODO) Test coverage 100% 🔨
+* (TODO, currently 60% completed) Test coverage 100% 🔨
 
 ### Credits
 
