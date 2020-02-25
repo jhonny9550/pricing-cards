@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import colors from './colors';
 
@@ -30,6 +30,22 @@ const Switch = props => {
       return val;
     });
   }, [value, labels, onToggle]);
+
+  /**
+   * This hook adds a keydown event listener to the document object
+   * And fires the handleToggle function when the key pressed is the space key
+   */
+  useEffect(() => {
+    const keydownCallback = e => {
+      if (e.keyCode === 32) {
+        handleToggle();
+      }
+    };
+    document.addEventListener('keydown', keydownCallback, false);
+    return () => {
+      document.removeEventListener('keydown', keydownCallback, false);
+    };
+  }, [handleToggle]);
 
   return (
     <>
@@ -81,8 +97,7 @@ const styles = StyleSheet.create({
     fontWeight: 700
   },
   toggle: {
-    backgroundImage:
-      `linear-gradient(to right, ${colors.light}, ${colors.primary})`,
+    backgroundImage: `linear-gradient(to right, ${colors.light}, ${colors.primary})`,
     borderRadius: 40,
     height: 33,
     position: 'relative',
