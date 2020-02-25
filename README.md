@@ -2,6 +2,8 @@
 
 Fancy cards and toggle made from 0 using react and aphrodite. Feel free to use this as pricing component on your landing page or project 🤠.
 
+Check the result [here in ZEIT](https://pricing-cards.now.sh/)
+
 ### Quick start
 
 ```
