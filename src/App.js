@@ -85,15 +85,11 @@ function App() {
 const styles = StyleSheet.create({
   app: {
     backgroundColor: colors.background,
-    height: 'calc(100% - 24px)',
+    height: '100%',
     textAlign: 'center',
     position: 'relative',
-    overflow: 'hidden',
-    padding: 12,
-    // Aphrodite responsive style 😎
-    '@media (max-width: 980px)': {
-      height: 'auto'
-    }
+    overflowX: 'hidden',
+    padding: 12
   },
   switch: {
     margin: '48px auto'
@@ -102,6 +98,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     padding: 12,
+    // Aphrodite responsive style 😎
     '@media (max-width: 980px)': {
       flexDirection: 'column',
       justifyContent: 'center',
